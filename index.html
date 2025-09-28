@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oghenekevwe Adiri - Virtual Assistant & Business Development Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4a5568;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #4a5568;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.8s forwards;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Sections */
+        .section {
+            background: white;
+            margin: 40px 0;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #2d3748;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+
+        .highlight-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            color: #2d3748;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            padding: 0.3rem 0;
+            color: #4a5568;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: #f7fafc;
+            padding: 2.5rem;
+            border-radius: 15px;
+            width: 45%;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: -45px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            left: -45px;
+        }
+
+        .timeline-date {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: #4a5568;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievement-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .achievement-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-form {
+            background: #f7fafc;
+            padding: 3rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+
+            .timeline-content::before {
+                left: -45px !important;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 40px 20px;
+                margin: 20px 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Floating elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-circle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle1 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .circle3 {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-circle circle1"></div>
+        <div class="floating-circle circle2"></div>
+        <div class="floating-circle circle3"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Oghenekevwe Adiri</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero h1">Oghenekevwe Adiri</div>
+                <div class="subtitle">Senior Virtual Assistant & Business Development Professional</div>
+                <p>Dynamic and detail-oriented professional with proven expertise in administrative processes, client engagement, and business development. Specializing in remote virtual assistance and digital collaboration.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="cta-button">Hire Me</a>
+                    <a href="#experience" class="cta-button secondary">View My Work</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">6+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Proposals Delivered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">35%</span>
+                        <span class="stat-label">Proposal Success Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$50K+</span>
+                        <span class="stat-label">Annual Revenue Generated</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div>
+                    <div style="text-align: center;">
+                        <div style="width: 250px; height: 250px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); margin: 0 auto; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; font-weight: bold;">KA</div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>I am a dynamic and detail-oriented Senior Professional Virtual Assistant with a BA in Linguistics and Communication Studies from the University of Port Harcourt. Based in Port Harcourt, Rivers State, Nigeria, I bring over 6 years of comprehensive experience in business development, administrative support, and virtual assistance.</p>
+                    
+                    <p>My career journey spans across diverse industries, from media and broadcasting to energy sector business development. I've successfully managed complex projects, secured major client contracts, and consistently exceeded performance targets. Recently completing the ALX Virtual Assistant Program, I combine traditional business acumen with cutting-edge virtual assistance techniques.</p>
+                    
+                    <p>I specialize in leveraging digital tools like Google Suite and Microsoft Office Suite to deliver efficient virtual support, while my business development expertise has helped companies achieve ISO 9001:2015 regularization and secure contracts with major clients including Total Energies and Saipem.</p>
+                </div>
+            </div>
+            
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <span class="highlight-number">40%</span>
+                    <span>Increase in Bidding Opportunities</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-number">25%</span>
+                    <span>Client Acquisition Growth</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-number">15%</span>
+                    <span>Client Satisfaction Improvement</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-number">50%</span>
+                    <span>Social Media Engagement Boost</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2>Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">💼</div>
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>Google Suite (Expert Proficiency)</li>
+                        <li>Microsoft Office Suite</li>
+                        <li>ARIBA Bidding Platform</li>
+                        <li>NLNG Bidding Platform</li>
+                        <li>SAIPEM E-Business Platform</li>
+                        <li>Social Media Management</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">📋</div>
+                    <h3>Administrative Skills</h3>
+                    <ul class="skill-list">
+                        <li>Calendar Management</li>
+                        <li>Email Management</li>
+                        <li>Document Preparation</li>
+                        <li>Travel Arrangements</li>
+                        <li>Process Optimization</li>
+                        <li>Quality Management Systems</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3>Business Development</h3>
+                    <ul class="skill-list">
+                        <li>Prospect Research & Identification</li>
+                        <li>Proposal Creation & Delivery</li>
+                        <li>Client Relationship Building</li>
+                        <li>RFQ & Bid Management</li>
+                        <li>Market Opportunity Analysis</li>
+                        <li>Revenue Generation</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">💬</div>
+                    <h3>Communication Skills</h3>
+                    <ul class="skill-list">
+                        <li>Excellent Written Communication</li>
+                        <li>Verbal Communication</li>
+                        <li>Strong Interpersonal Skills</li>
+                        <li>Presentation Development</li>
+                        <li>Client Communication</li>
+                        <li>Cross-cultural Communication</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Project Management</h3>
+                    <ul class="skill-list">
+                        <li>Project Planning & Execution</li>
+                        <li>Task Prioritization</li>
+                        <li>Progress Tracking & Reporting</li>
+                        <li>Team Coordination</li>
+                        <li>Deadline Management</li>
+                        <li>Quality Assurance</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">👥</div>
+                    <h3>Leadership & Management</h3>
+                    <ul class="skill-list">
+                        <li>Team Leadership</li>
+                        <li>Team Motivation</li>
+                        <li>Problem-Solving</li>
+                        <li>Operations Management</li>
+                        <li>Strategic Planning</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2019 - Present</div>
+                        <h3>Business Development Executive</h3>
+                        <div class="timeline-company">Jevant Spencer International Company | Port Harcourt, Rivers State</div>
+                        <ul class="achievement-list">
+                            <li>Spearheaded business development procedures and achieved ISO 9001:2015 regularization</li>
+                            <li>Registered company on multiple procurement platforms, increasing bidding opportunities by 40%</li>
+                            <li>Developed pitches and presentations resulting in 25% increase in client acquisition</li>
+                            <li>Managed RFQs and bids for major clients including Total Energies and Saipem</li>
+                            <li>Delivered 50 comprehensive proposals with 35% acceptance rate, generating $50,000 annually</li>
+                            <li>Improved client satisfaction scores by 15% through effective communication</li>
+                            <li>Secured 10 new project bids contributing to 25% increase in annual revenue</li>
+                            <li>Launched company social media pages, achieving 50% engagement increase</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2018 - December 2018</div>
+                        <h3>Administrator/Company Secretary</h3>
+                        <div class="timeline-company">Blue-Tide Integrated Services | Port Harcourt, Rivers State</div>
+                        <ul class="achievement-list">
+                            <li>Obtained 3 key licenses (DPR, Tax Clearance, NSITF) within 6 months</li>
+                            <li>Identified and researched 15 new market opportunities, contributing to 20% client base growth</li>
+                            <li>Created comprehensive company profiles improving client communication by 15%</li>
+                            <li>Managed procurement platform registrations and secured 10 essential licenses</li>
+                            <li>Coordinated 5 major projects from initiation to completion</li>
+                            <li>Streamlined administrative processes, reducing operational costs by 10%</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">September 2016 - September 2017</div>
+                        <h3>Media Handler/Administrative Assistant</h3>
+                        <div class="timeline-company">Today FM | Rumuekini, Rivers State</div>
+                        <ul class="achievement-list">
+                            <li>Organized 500+ company documents, improving accessibility and efficiency</li>
+                            <li>Created 10 engaging jingles and voiceovers, enhancing station branding</li>
+                            <li>Co-anchored 50 episodes of "Youth Arise," contributing to 10% increase in Sunday ratings</li>
+                            <li>Managed media platforms resulting in 20% increase in audience reach</li>
+                            <li>Produced 200 episodes of "Today in History," increasing weekday listenership by 15%</li>
+                            <li>Secured ten new clients, increasing advertising revenue by ₦250,000</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2>Let's Work Together</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem; font-size: 1.5rem;">Get In Touch</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>kevweadiri@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+234 815 792 7398</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Port Harcourt, Rivers State, Nigeria</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <h4>Availability</h4>
+                            <p>Monday - Friday: 8:00 AM - 6:00 PM WAT<br>Weekend: On Request</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                        <h4 style="margin-bottom: 1rem;">Why Choose Me?</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; position: relative; padding-left: 1.5rem;">✓ 6+ years of proven experience</li>
+                            <li style="padding: 0.5rem 0; position: relative; padding-left: 1.5rem;">✓ Expert in Google Suite & Office 365</li>
+                            <li style="padding: 0.5rem 0; position: relative; padding-left: 1.5rem;">✓ Strong business development track record</li>
+                            <li style="padding: 0.5rem 0; position: relative; padding-left: 1.5rem;">✓ Excellent communication skills</li>
+                            <li style="padding: 0.5rem 0; position: relative; padding-left: 1.5rem;">✓ Available across time zones</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 2rem; color: #2d3748;">Send Me a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or how I can help you..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(102, 126, 234, 0.1); border-radius: 8px; border-left: 4px solid #667eea;">
+                        <h4 style="color: #667eea; margin-bottom: 0.5rem;">Quick Response Guarantee</h4>
+                        <p style="margin: 0; color: #4a5568; font-size: 0.9rem;">I typically respond to all inquiries within 24 hours during business days. For urgent matters, please call directly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section">
+            <h2>Professional Achievements</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2rem; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                    <h3>Business Development Success</h3>
+                    <p>Successfully managed RFQs and bids for major energy companies including Total Energies and Saipem, achieving a 35% proposal acceptance rate.</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #ff6b6b, #ff8e8e); color: white; padding: 2rem; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📈</div>
+                    <h3>Revenue Generation</h3>
+                    <p>Generated over $50,000 in annual revenue through strategic proposal development and client relationship management.</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #4ecdc4, #44a08d); color: white; padding: 2rem; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
+                    <h3>Quality Certification</h3>
+                    <p>Led the implementation of quality management systems achieving ISO 9001:2015 regularization for company operations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section class="section">
+            <h2>Education & Certifications</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="background: #f7fafc; padding: 2rem; border-radius: 15px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #2d3748; margin-bottom: 1rem;">🎓 Academic Qualifications</h3>
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="color: #667eea;">Bachelor of Arts in Linguistics and Communication Studies</h4>
+                        <p style="color: #4a5568; margin: 0;">University of Port Harcourt | 2014</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #667eea;">Certificate in Mass Communication</h4>
+                        <p style="color: #4a5568; margin: 0;">University of Port Harcourt | 2010</p>
+                    </div>
+                </div>
+                
+                <div style="background: #f7fafc; padding: 2rem; border-radius: 15px; border-left: 4px solid #ff6b6b;">
+                    <h3 style="color: #2d3748; margin-bottom: 1rem;">📜 Professional Certifications</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: #4a5568;">✓ ALX Virtual Assistant Program (2024)</li>
+                        <li style="padding: 0.5rem 0; color: #4a5568;">✓ Management Systems Internal Audits (2020)</li>
+                        <li style="padding: 0.5rem 0; color: #4a5568;">✓ Leadership and Management Principles (2020)</li>
+                        <li style="padding: 0.5rem 0; color: #4a5568;">✓ Manpower Outsourcing (2020)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: linear-gradient(135deg, #2d3748, #4a5568); color: white; padding: 3rem 0; margin-top: 4rem;">
+        <div class="container">
+            <div style="text-align: center;">
+                <h3 style="margin-bottom: 1rem;">Ready to Work Together?</h3>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Let's discuss how I can help streamline your business operations and achieve your goals.</p>
+                <a href="#contact" class="cta-button" style="display: inline-block; margin-bottom: 2rem;">Get Started Today</a>
+                
+                <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; margin-top: 2rem;">
+                    <p style="margin: 0; opacity: 0.7;">&copy; 2025 Oghenekevwe Adiri. All rights reserved. | Professional Virtual Assistant & Business Development Specialist</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe skill cards and timeline items
+        document.querySelectorAll('.skill-card, .timeline-item, .section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Create mailto link
+            const mailtoLink = `mailto:kevweadiri@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Email Client Opened!';
+            submitBtn.style.background = '#4ecdc4';
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+            }, 3000);
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Add typing effect to hero subtitle
+        const subtitle = document.querySelector('.subtitle');
+        const originalText = subtitle.textContent;
+        subtitle.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < originalText.length) {
+                subtitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        // Start typing effect after page loads
+        setTimeout(typeWriter, 1500);
+    </script>
+</body>
+</html>
